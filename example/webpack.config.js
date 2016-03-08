@@ -8,7 +8,7 @@ const cssLoader = `style!css?importLoaders=1&sourceMap!autoprefixer?${browsers}`
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: {
-    app: [ './bin/dev-client', './src/index.js' ]
+    app: [ './bin/dev-client', './example/index.js' ]
   },
   output: {
     path: path.resolve(__dirname, './dist/'),
@@ -26,7 +26,7 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.join(__dirname, './src/index.html'),
+      template: path.join(__dirname, './index.html'),
       inject: true
     })
   ],
