@@ -1,3 +1,8 @@
+/**
+ * url 解析模块
+ * @param  {String} url 需要被解析的 url 字符串
+ * @return {Object}     解析出来的 url 对象，类似于 node.js 中 url.parse 的结果
+ */
 export default function parseUrl (url) {
   let protocol, host, hostname, port, query = {}, search,
       hash, pathname, hashbangPath, isInnerLink

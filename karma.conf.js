@@ -1,5 +1,6 @@
 // Karma configuration
 // Generated on Mon Mar 07 2016 23:35:41 GMT+0800 (CST)
+const webpack = require('webpack')
 
 module.exports = function(config) {
   config.set({
@@ -10,13 +11,12 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai', 'commonjs'],
+    frameworks: ['mocha', 'chai' ],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'src/**/*.js',
-      'test/**/*.js'
+      'tests.webpack.js'
     ],
 
     // list of files to exclude
@@ -27,18 +27,29 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      "src/**/*.js": ["babel", "commonjs"],
-      "test/**/*.js": ["babel", "commonjs"]
+      'tests.webpack.js': [ 'webpack', 'sourcemap' ]
     },
 
-    plugins: [
-      'karma-mocha',
-      'karma-chai',
-      'karma-mocha-reporter',
-      'karma-commonjs',
-      'karma-babel-preprocessor',
-      'karma-phantomjs-launcher'
-    ],
+    webpack: {
+      devtool: 'inline-source-map',
+      module: {
+        loaders: [
+          { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }
+        ]
+      },
+      plugins: [
+        new webpack.DefinePlugin({
+          'process.env.NODE_ENV': JSON.stringify('test')
+        })
+      ]
+    },
+
+    // plugins: [
+    //   'karma-mocha',
+    //   'karma-chai',
+    //   'karma-mocha-reporter',
+    //   'karma-phantomjs-launcher'
+    // ],
 
     // test results reporter to use
     // possible values: 'dots', 'progress'

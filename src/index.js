@@ -1,12 +1,32 @@
-class Router {
+// 两种模式：
+// - hashbang
+// - history
+
+/**
+ * 配置路由
+ * go, abort, redirect, before, after
+ */
+const Router = (function () {
+
+})()
+
+/**
+ * 负责管理基于 hashbang 历史记录管理
+ */
+class HashbangHistory {
   constructor () {
 
   }
 }
 
-// 两种模式：
-// - hashbang
-// - history
+/**
+ * 负责管理 history 对象堆栈
+ */
+class ClientHistory {
+  constructor () {
+
+  }
+}
 
 /**
  * 基于base获取当前的path，用于匹配路由配置
