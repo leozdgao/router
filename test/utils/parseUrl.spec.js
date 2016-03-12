@@ -33,8 +33,8 @@ describe('Testing utils/parseUrl, and work as url.parse in node.js', _ => {
     const url = parseUrl(link)
     const hashbangUrl = parseUrl(hashbangLink)
 
-    expect(url.hash).to.equal('#foo')
-    expect(hashbangUrl.hash).to.equal('#!/path/to')
+    expect(url.hash).to.equal('foo')
+    expect(hashbangUrl.hash).to.equal('!/path/to')
     expect(hashbangUrl.hashbangPath).to.equal('/path/to')
   }),
   it('should parse query object and search string', function () {
@@ -43,9 +43,9 @@ describe('Testing utils/parseUrl, and work as url.parse in node.js', _ => {
     const url = parseUrl(link)
     const encodeUrl = parseUrl(encodeLink)
 
-    expect(url.search).to.equal('?page=1&skip=10')
+    expect(url.search).to.equal('page=1&skip=10')
     expect(url.query).to.deep.equal({ page: '1', skip: '10' })
-    expect(encodeUrl.search).to.equal('?link=' + encodeURIComponent('https://www.baidu.com'))
+    expect(encodeUrl.search).to.equal('link=' + encodeURIComponent('https://www.baidu.com'))
     expect(encodeUrl.query).to.deep.equal({ link: 'https://www.baidu.com' })
   })
 })

@@ -34,19 +34,17 @@ export default function parseUrl (url) {
       hashbangPath = hash.slice(1)
     }
     else hashbangPath = ''
-
-    hash = '#' + hash
   }
   else hash = ''
 
   // 接下来是 search 和 query
   ;([ pathname, search ] = pathname.split('?'))
   if (search) {
+    // search 本身不做 decode
     search.replace(/[&]?(.+?)=([^&]+)/g, (_, k, v) => {
       // 除了做 decode，不做其他处理
       query[k] = decodeURIComponent(v)
     })
-    search = '?' + search // 这边不做 decode
   }
   else search = ''
 

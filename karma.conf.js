@@ -1,8 +1,8 @@
 // Karma configuration
-// Generated on Mon Mar 07 2016 23:35:41 GMT+0800 (CST)
+
 const webpack = require('webpack')
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -11,7 +11,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai' ],
+    frameworks: [ 'mocha', 'chai' ],
 
 
     // list of files / patterns to load in the browser
@@ -44,24 +44,14 @@ module.exports = function(config) {
       ]
     },
 
-    // plugins: [
-    //   'karma-mocha',
-    //   'karma-chai',
-    //   'karma-mocha-reporter',
-    //   'karma-phantomjs-launcher'
-    // ],
+    webpackMiddleware: {
+      noInfo: true
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha'],
-
-    // client: {
-    //   mocha: {
-    //     recursive: true
-    //   }
-    // },
-
+    reporters: [ 'mocha' ],
 
     // web server port
     port: 9876,
@@ -82,7 +72,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: [ 'PhantomJS' ],
 
 
     // Continuous Integration mode
