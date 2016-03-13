@@ -8,7 +8,7 @@ function renderIndex () {
   console.log('index')
 }
 function renderArticle ({ id }) {
-  console.log('article')
+  console.log('article ' + id)
 }
 
 // 扁平配置（组件嵌套式的路由配置可以最终转化为扁平配置？）
